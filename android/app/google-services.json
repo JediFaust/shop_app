@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "515187186746",
+    "project_id": "shop-provider-e814b",
+    "storage_bucket": "shop-provider-e814b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:515187186746:android:a322defb05433a1eb9a903",
+        "android_client_info": {
+          "package_name": "com.jediprod.shop_provider"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "515187186746-6shnvg6ou7l3iec8bicgpmd3249r4j2p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBcW9ztQGEiJFALbDLy3qp6WofEAaEq1Vo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "515187186746-6shnvg6ou7l3iec8bicgpmd3249r4j2p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
