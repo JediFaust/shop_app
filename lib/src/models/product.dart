@@ -1,4 +1,5 @@
 class Product {
+  String? id;
   String? imageURL;
   String? title;
   String? description;
@@ -6,5 +7,10 @@ class Product {
   String? currency;
 
   Product(
-      {this.imageURL, this.title, this.description, this.price, this.currency});
+      {this.id,
+      this.imageURL,
+      this.title,
+      this.description,
+      this.price,
+      this.currency});
 }

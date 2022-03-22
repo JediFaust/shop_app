@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:shop_provider/src/models/database.dart';
+import 'package:shop_provider/src/models/product.dart';
 import 'package:shop_provider/src/screens/product_detail.dart';
 import 'package:shop_provider/src/widgets/appbar.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -42,11 +43,24 @@ class _ProductListState extends State<ProductList> {
                     return Card(
                       color: Colors.amber,
                       child: InkWell(
-                        onTap: () => Navigator.restorablePushNamed(
-                          context,
-                          ProductDetail.routeName,
-                          arguments: snapshot.data!.docs[index].id,
-                        ),
+                        onTap: () {
+                          Product product = Product(
+                            id: snapshot.data!.docs[index].id,
+                            imageURL:
+                                snapshot.data!.docs[index].get('imageURL'),
+                            title: snapshot.data!.docs[index].get('title'),
+                            description:
+                                snapshot.data!.docs[index].get('description'),
+                            price: snapshot.data!.docs[index].get('price'),
+                            currency:
+                                snapshot.data!.docs[index].get('currency'),
+                          );
+                          Navigator.restorablePushNamed(
+                            context,
+                            ProductDetail.routeName,
+                            arguments: product,
+                          );
+                        },
                         child: SizedBox(
                             width: double.infinity,
                             height: double.infinity,
@@ -56,16 +70,22 @@ class _ProductListState extends State<ProductList> {
                                 Image(
                                   image: NetworkImage(snapshot.data!.docs[index]
                                       .get('imageURL')),
-                                  fit: BoxFit.cover,
+                                  fit: BoxFit.fitWidth,
                                 ),
                                 Column(
                                   mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
+                                      MainAxisAlignment.spaceBetween,
                                   children: [
-                                    Text(snapshot.data!.docs[index]
-                                        .get('title')),
-                                    Text(
-                                        '${snapshot.data!.docs[index].get('price')} ${snapshot.data!.docs[index].get('currency')}'),
+                                    Container(
+                                      color: Colors.black54,
+                                      child: Text(snapshot.data!.docs[index]
+                                          .get('title')),
+                                    ),
+                                    Container(
+                                      color: Colors.black54,
+                                      child: Text(
+                                          '${snapshot.data!.docs[index].get('price')} ${snapshot.data!.docs[index].get('currency')}'),
+                                    ),
                                   ],
                                 ),
                               ],

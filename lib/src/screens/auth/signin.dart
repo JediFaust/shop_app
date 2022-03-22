@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
+import 'package:shop_provider/src/provider/google_sign_in.dart';
 import 'package:shop_provider/src/screens/auth/otp.dart';
 
 class SignInPage extends StatefulWidget {
@@ -72,6 +74,22 @@ class _SignInPageState extends State<SignInPage> {
                                           '+996707968858'))),
                           child: Text(
                             'Sign In',
+                            style: Theme.of(context).textTheme.button,
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 25),
+                        child: ElevatedButton.icon(
+                          onPressed: () {
+                            final provider = Provider.of<GoogleSignInProvider>(
+                                context,
+                                listen: false);
+                            provider.googleLogin();
+                          },
+                          icon: const Icon(Icons.mail),
+                          label: Text(
+                            'Sign In with Google',
                             style: Theme.of(context).textTheme.button,
                           ),
                         ),
