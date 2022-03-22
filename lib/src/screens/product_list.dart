@@ -55,7 +55,7 @@ class _ProductListState extends State<ProductList> {
                             currency:
                                 snapshot.data!.docs[index].get('currency'),
                           );
-                          Navigator.restorablePushNamed(
+                          Navigator.pushNamed(
                             context,
                             ProductDetail.routeName,
                             arguments: product,
@@ -76,15 +76,31 @@ class _ProductListState extends State<ProductList> {
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
-                                    Container(
-                                      color: Colors.black54,
-                                      child: Text(snapshot.data!.docs[index]
-                                          .get('title')),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: [
+                                        const SizedBox(width: 15),
+                                        Text(
+                                          snapshot.data!.docs[index]
+                                              .get('title'),
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .button,
+                                        ),
+                                      ],
                                     ),
-                                    Container(
-                                      color: Colors.black54,
-                                      child: Text(
-                                          '${snapshot.data!.docs[index].get('price')} ${snapshot.data!.docs[index].get('currency')}'),
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.end,
+                                      children: [
+                                        Text(
+                                          '${snapshot.data!.docs[index].get('price')} ${snapshot.data!.docs[index].get('currency')}',
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .button,
+                                        ),
+                                        const SizedBox(width: 10),
+                                      ],
                                     ),
                                   ],
                                 ),

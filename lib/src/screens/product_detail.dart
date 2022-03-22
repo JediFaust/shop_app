@@ -15,6 +15,7 @@ class ProductDetail extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.amber,
         title: Text('${product!.title}'),
         centerTitle: true,
       ),
@@ -25,11 +26,11 @@ class ProductDetail extends StatelessWidget {
           Image(image: NetworkImage(product!.imageURL as String)),
           Text('${product!.description}'),
           Text('${product!.price} ${product!.currency}'),
-          ElevatedButton.icon(
+          ElevatedButton(
             style: ElevatedButton.styleFrom(
               fixedSize:
                   const Size(120, 50), // Enter Media Query settings later
-              padding: const EdgeInsets.symmetric(vertical: 12),
+              padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 30),
               primary: Colors.red,
               shape: const RoundedRectangleBorder(
                   borderRadius: BorderRadius.all(Radius.circular(20))),
@@ -39,8 +40,7 @@ class ProductDetail extends StatelessWidget {
               Navigator.pushNamedAndRemoveUntil(
                   context, ProductList.routeName, (route) => false);
             },
-            icon: const Icon(Icons.delete),
-            label: Text(
+            child: Text(
               'Delete Product',
               style: Theme.of(context).textTheme.button,
             ),

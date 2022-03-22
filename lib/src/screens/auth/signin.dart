@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:shop_provider/src/provider/google_sign_in.dart';
 import 'package:shop_provider/src/screens/auth/otp.dart';
+import 'package:shop_provider/src/screens/home.dart';
 
 class SignInPage extends StatefulWidget {
   SignInPage({Key? key}) : super(key: key);
@@ -86,8 +87,12 @@ class _SignInPageState extends State<SignInPage> {
                                 context,
                                 listen: false);
                             provider.googleLogin();
+                            Navigator.pushNamedAndRemoveUntil(context,
+                                HomeScreen.routeName, (route) => false);
                           },
-                          icon: const Icon(Icons.mail),
+                          icon: const Icon(
+                            Icons.mail,
+                          ),
                           label: Text(
                             'Sign In with Google',
                             style: Theme.of(context).textTheme.button,

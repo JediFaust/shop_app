@@ -6,6 +6,7 @@ Widget appBar(
     floatHeaderSlivers: true,
     headerSliverBuilder: (context, innerBoxIsScrolled) => [
       SliverAppBar(
+        backgroundColor: Colors.amber,
         floating: float ?? true,
         title: Text(titleText ?? ''),
         centerTitle: true,

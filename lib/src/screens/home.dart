@@ -33,12 +33,14 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       body: screens[_index],
       floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.green,
         child: const Icon(Icons.add),
         onPressed: () =>
             Navigator.restorablePushNamed(context, ProductCreate.routeName),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: BottomNavigationBar(
+          selectedItemColor: Colors.amber,
           currentIndex: _index,
           onTap: (int index) => setState(() => _index = index),
           items: const [

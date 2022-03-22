@@ -20,7 +20,7 @@ ThemeData myTheme() {
       bodyText2: TextStyle(fontSize: 20, color: Colors.black45),
       subtitle1: TextStyle(fontSize: 14, color: Colors.black),
     ),
-    splashColor: Colors.blue,
+    splashColor: Colors.orange,
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
         fixedSize: const Size(380, 50), // Enter Media Query settings later

@@ -7,6 +7,7 @@ import 'package:shop_provider/src/provider/google_sign_in.dart';
 import 'package:shop_provider/src/screens/auth/otp.dart';
 import 'package:shop_provider/src/screens/auth/signin.dart';
 import 'package:shop_provider/src/screens/home.dart';
+import 'package:shop_provider/src/screens/homepage.dart';
 import 'package:shop_provider/src/screens/product_create.dart';
 import 'package:shop_provider/src/screens/product_detail.dart';
 import 'package:shop_provider/src/screens/product_list.dart';
@@ -60,7 +61,7 @@ class MyApp extends StatelessWidget {
             },
           );
         },
-        home: SignInPage(),
+        home: const HomePage(),
       ),
     );
   }

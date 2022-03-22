@@ -3,7 +3,7 @@ class Product {
   String? imageURL;
   String? title;
   String? description;
-  int? price;
+  String? price;
   String? currency;
 
   Product(

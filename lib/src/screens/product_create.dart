@@ -63,6 +63,7 @@ class _ProductCreateState extends State<ProductCreate> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.amber,
         title: const Text('Add new Product'),
         centerTitle: true,
       ),
@@ -166,7 +167,7 @@ class _ProductCreateState extends State<ProductCreate> {
                   borderSide: BorderSide(color: Colors.amber, width: 2),
                 ),
               ),
-              onSaved: (value) => newProduct.price = int.parse(value as String),
+              onSaved: (value) => newProduct.price = value,
             ),
             const SizedBox(height: 10),
             DropdownButtonFormField(
