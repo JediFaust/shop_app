@@ -10,10 +10,18 @@ class AccountPage extends StatefulWidget {
 
 class _AccountPageState extends State<AccountPage> {
   String? uid;
+  String? name;
+  String? email;
+  String? phone;
+  String? avatar;
 
   @override
   void initState() {
     uid = FirebaseAuth.instance.currentUser?.uid ?? 'invalid User ID';
+    name = FirebaseAuth.instance.currentUser?.displayName ?? 'invalid Name';
+    email = FirebaseAuth.instance.currentUser?.email ?? 'invalid Email';
+    phone = FirebaseAuth.instance.currentUser?.phoneNumber ?? 'invalid Phone';
+    avatar = FirebaseAuth.instance.currentUser?.photoURL ?? 'invalid Avatar';
     super.initState();
   }
 
@@ -22,14 +30,24 @@ class _AccountPageState extends State<AccountPage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.amber,
-        title: const Text('Account Page'),
+        title: const Text('Profile'),
         centerTitle: true,
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        crossAxisAlignment: CrossAxisAlignment.end,
         children: [
-          Text('User ID: $uid'),
+          CircleAvatar(
+            backgroundColor: Colors.amber[100],
+            radius: 75,
+            child: (avatar != null) && (avatar != "invalid Avatar")
+                ? Image(image: NetworkImage(avatar as String))
+                : const FlutterLogo(size: 75),
+          ),
+          const SizedBox(height: 20),
+          Text(
+            email ?? "Username",
+            style: TextStyle(color: Colors.black),
+          ),
           ElevatedButton(
             style: ElevatedButton.styleFrom(
               fixedSize:

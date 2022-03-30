@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:shop_provider/src/screens/account.dart';
+import 'package:shop_provider/src/screens/profile.dart';
 import 'package:shop_provider/src/screens/product_create.dart';
 import 'package:shop_provider/src/screens/product_list.dart';
 

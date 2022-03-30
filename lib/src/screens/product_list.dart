@@ -61,34 +61,37 @@ class _ProductListState extends State<ProductList> {
                             arguments: product,
                           );
                         },
-                        child: SizedBox(
+                        child: Container(
+                            // decoration: BoxDecoration(
+                            //   image: DecorationImage(
+                            //     alignment: FractionalOffset.topCenter,
+                            //     image: NetworkImage(
+                            //         snapshot.data!.docs[index].get('imageURL')),
+                            //     fit: BoxFit.fitWidth,
+                            //   ),
+                            // ),
                             width: double.infinity,
                             height: double.infinity,
                             child: Stack(
                               alignment: Alignment.center,
                               children: [
-                                Image(
-                                  image: NetworkImage(snapshot.data!.docs[index]
-                                      .get('imageURL')),
-                                  fit: BoxFit.fitWidth,
-                                ),
                                 Column(
                                   mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
+                                      MainAxisAlignment.spaceEvenly,
                                   children: [
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      children: [
-                                        const SizedBox(width: 15),
-                                        Text(
-                                          snapshot.data!.docs[index]
-                                              .get('title'),
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .button,
-                                        ),
-                                      ],
+                                    Text(
+                                      snapshot.data!.docs[index].get('title'),
+                                      style: Theme.of(context).textTheme.button,
+                                    ),
+                                    AspectRatio(
+                                      aspectRatio: 1.5,
+                                      child: Image(
+                                        alignment: FractionalOffset.center,
+                                        image: NetworkImage(snapshot
+                                            .data!.docs[index]
+                                            .get('imageURL')),
+                                        fit: BoxFit.cover,
+                                      ),
                                     ),
                                     Row(
                                       mainAxisAlignment: MainAxisAlignment.end,
